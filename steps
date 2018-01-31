@@ -1,0 +1,24 @@
+npm init
+
+// basic react dep. (--save to save them in prod in package.json)
+npm install react react-dom --save
+
+// --save-dev is to not load this in prod
+npm install webpack webpack-dev-server --save-dev
+
+// for .css and .scss files
+// sass-loader 
+npm install style-loader css-loader --save-dev
+
+npm install typings
+npm install typescript --save-dev
+npm install ts-loader --save-dev
+
+// pour que les props fonctionne en typescript
+npm install @types/node @type/react --save-dev
+
+// create the webpack.config.js file
+
+// adding redux
+npm install redux --save
+npm install react-redux --save
