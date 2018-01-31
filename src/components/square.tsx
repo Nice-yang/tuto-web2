@@ -1,20 +1,22 @@
 import * as React from 'react';
 
 export interface SquareProps {
-    onClick: any;
     value: string;
+    onSquareClick: () => void;
 }
 
-type State = {
-  xOrO: string;
-}
+export class Square extends React.Component<SquareProps> {
 
-export class Square extends React.Component<SquareProps, State> {
-    public render() {
-      return (
-        <button className="square" onClick={() => this.props.onClick()}>
-          {}
-        </button>
-      );
-    }
+  public render(): JSX.Element {
+    return (
+      <button className="square" onClick={() => this.onClick()}>
+        {this.props.value}
+      </button>
+    );
   }
+
+  private onClick(): void {
+    if (!this.props.value)
+      this.props.onSquareClick();
+  }
+}
