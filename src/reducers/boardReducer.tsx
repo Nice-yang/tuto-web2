@@ -2,7 +2,7 @@ export default function reducer(state: any = {
     squares: ["", "", "", "", "", "", "", "", ""],
     isXTurn: true,
     whosTurn: "X"
-}, action: any) {
+}, action: any): any {
     switch (action.type) {
         case "SQUARE_CLICK": {
             const isXNext = !state.isXTurn;

@@ -1,7 +1,7 @@
 export default function reducer(state: any = {
     gameIsDone: false,
     winner: undefined
-}, action: any) {
+}, action: any): any {
     switch (action.type) {
         case "GAME_WON": {
             return {...state,

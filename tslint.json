@@ -34,7 +34,7 @@
         "trailing-comma": false,
         "align": [true, "statements"],
         "array-type": [true, "array"],
-        "typedef": [true, "parameter", "property-declaration"],
+        "typedef": [true, "parameter", "property-declaration", "call-signature", "member-variable-declaration"],
         "arrow-parens": true,
         "arrow-return-shorthand": true,
         "encoding": true,
