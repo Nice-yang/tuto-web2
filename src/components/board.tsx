@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Square } from './square';
-import { updateSquares } from '../actions/boardActions';
-import { gameWon } from '../actions/gameActions';
-import store from '../store';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Square } from "./square";
+import { updateSquares } from "../actions/boardActions";
+import { gameWon } from "../actions/gameActions";
+import store from "../store";
 
 interface BoardProps {
   squares: string[];
@@ -11,8 +11,8 @@ interface BoardProps {
   gameWon: boolean;
 }
 
-class Board_ extends React.Component<BoardProps> {  
-    public render() {
+class BoardComponent extends React.Component<BoardProps> {
+    public render(): JSX.Element {
       return (
         <div>
           <div className="board-row">
@@ -33,10 +33,10 @@ class Board_ extends React.Component<BoardProps> {
         </div>
       );
     }
-  
-    private renderSquare(i: number) {
+
+    private renderSquare(i: number): JSX.Element {
       return (
-        <Square 
+        <Square
           value={this.props.squares[i]}
           onSquareClick={() => this.clickOnSquare(i)}
         />
@@ -44,12 +44,13 @@ class Board_ extends React.Component<BoardProps> {
     }
 
     private clickOnSquare(i: number): void {
-      if (this.props.gameWon) 
+      if (this.props.gameWon)
         return;
-        
+
       const squares = this.props.squares.slice();
       squares[i] = this.props.whosTurn;
       store.dispatch(updateSquares(squares));
+
       this.checkIfSomeoneWon(squares);
     }
 
@@ -65,15 +66,15 @@ class Board_ extends React.Component<BoardProps> {
       [2, 4, 6]
     ];
 
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+    for (const line of lines) {
+      const [a, b, c] = line;
       if (squares[a] !== "" && squares[a] === squares[b] && squares[a] === squares[c])
         store.dispatch(gameWon(squares[a]));
     }
   }
 }
 
-const mapStateToProps = (state): BoardProps => {
+function mapStateToProps(state: any): BoardProps {
   return {
     squares: state.board.squares,
     whosTurn: state.board.whosTurn,
@@ -81,4 +82,4 @@ const mapStateToProps = (state): BoardProps => {
   };
 }
 
-export const Board = connect(mapStateToProps, undefined)(Board_);
+export const Board = connect(mapStateToProps, undefined)(BoardComponent);

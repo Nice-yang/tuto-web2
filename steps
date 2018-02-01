@@ -22,3 +22,7 @@ npm install @types/node @type/react --save-dev
 // adding redux
 npm install redux --save
 npm install react-redux --save
+
+// needs typescript -g as well
+npm install tslint --save-dev -g
+tslint --init

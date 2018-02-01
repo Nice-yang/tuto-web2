@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface SquareProps {
     value: string;
-    onSquareClick: () => void;
+    onSquareClick(): void;
 }
 
 export class Square extends React.Component<SquareProps> {

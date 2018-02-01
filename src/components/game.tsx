@@ -1,8 +1,6 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Board } from './board';
-import { gameWon } from '../actions/gameActions';
-import store from '../store';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Board } from "./board";
 
 interface GameProps {
   squares: string[];
@@ -11,12 +9,12 @@ interface GameProps {
   winner: string;
 }
 
-class Game_ extends React.Component<GameProps> {
-  public render() {
-    let status = 'Next player is ' + this.props.whosNext;
+class GameComponent extends React.Component<GameProps> {
+  public render(): JSX.Element {
+    let status = "Next player is " + this.props.whosNext;
 
     if (this.props.gameWon)
-      status = 'The winner is ' + this.props.winner + '!';
+      status = "The winner is " + this.props.winner + "!";
 
     return (
       <div className="game">
@@ -31,7 +29,7 @@ class Game_ extends React.Component<GameProps> {
   }
 }
 
-const mapStateToProps = (state): GameProps => {
+function mapStateToProps(state: any): GameProps {
   return {
     squares: state.board.squares,
     whosNext: state.board.whosTurn,
@@ -40,4 +38,4 @@ const mapStateToProps = (state): GameProps => {
   };
 }
 
-export const Game = connect(mapStateToProps, undefined)(Game_);
+export const Game = connect(mapStateToProps, undefined)(GameComponent);

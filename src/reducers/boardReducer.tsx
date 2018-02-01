@@ -1,15 +1,16 @@
-export default function reducer(state={
+export default function reducer(state: any = {
     squares: ["", "", "", "", "", "", "", "", ""],
     isXTurn: true,
-    whosTurn: 'X'
-}, action) {
+    whosTurn: "X"
+}, action: any) {
     switch (action.type) {
         case "SQUARE_CLICK": {
-            let isXNext = !state.isXTurn;
+            const isXNext = !state.isXTurn;
+
             return {...state,
                 squares: action.payload,
                 isXTurn: isXNext,
-                whosTurn: isXNext ? 'X' : 'O'
+                whosTurn: isXNext ? "X" : "O"
             };
         }
         default: {

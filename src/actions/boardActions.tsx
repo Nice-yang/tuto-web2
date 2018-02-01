@@ -1,6 +1,6 @@
 export function updateSquares(squares: string[]) {
-    return { 
+    return {
         type: "SQUARE_CLICK",
         payload: squares
-    }
+    };
 }
